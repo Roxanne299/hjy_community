@@ -19,6 +19,7 @@ mybatis-plus:
   config-location: classpath:mybatis/mybatis-config.xml
   global-config:
     db-config:
+#      这个指定id生成为雪花算法，我们可以使用@TableId指定我们的entity告诉我们框架这个主键，也可以在注解中使用`type`指定
       id-type: assign_id
     banner: false
 spring:
