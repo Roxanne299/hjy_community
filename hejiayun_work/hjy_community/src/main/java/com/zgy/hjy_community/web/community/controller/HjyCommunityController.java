@@ -1,4 +1,4 @@
-package com.zgy.hjy_community.web.controller;
+package com.zgy.hjy_community.web.community.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;

@@ -14,7 +14,7 @@ logging:
     org.springframework: warn
 
 mybatis-plus:
-  type-aliases-package: com.zgy.hjy_community.**.domain
+  type-aliases-package: com.zgy.hjy_community.**.domain.entity
   mapper-locations: classpath:mapper/**/*Mapper.xml
   config-location: classpath:mybatis/mybatis-config.xml
   global-config:
