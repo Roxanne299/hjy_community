@@ -12,9 +12,7 @@ import com.zgy.hjy_community.community.domain.dto.HjyCommunityDto;
 import com.zgy.hjy_community.community.domain.entity.HjyCommunity;
 import com.zgy.hjy_community.community.service.HjyCommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +36,28 @@ public class HjyCommunityController extends BaseController {
         // 封装返回分页结果
         PageResult response = getData(hjyCommunityDtos);
         return response;
+    }
+
+    @PostMapping
+    public BaseResponse<Integer> add(@RequestBody HjyCommunity community)
+    {
+        int data = service.AddHjyCommunity(community);
+        return BaseResponse.success(data);
+    }
+
+    @DeleteMapping( "/{communityIds}")
+    public BaseResponse<Integer> delete(@PathVariable List<Long> communityIds){
+        int data = service.deleteHjyCommunity(communityIds);
+        return BaseResponse.success(data);
+    }
+    @GetMapping( "/{communityIds}")
+    public BaseResponse<HjyCommunity> getCommunityById(@PathVariable Long communityIds){
+        HjyCommunity data = service.getCommunityById(communityIds);
+        return BaseResponse.success(data);
+    }
+    @PutMapping
+    public BaseResponse<Integer> updateCommunityById(@RequestBody  HjyCommunity community){
+        int data = service.updateCommunity(community);
+        return BaseResponse.success(data);
     }
 }

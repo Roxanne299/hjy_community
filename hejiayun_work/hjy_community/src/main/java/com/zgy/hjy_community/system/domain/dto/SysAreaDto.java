@@ -1,6 +1,5 @@
 package com.zgy.hjy_community.system.domain.dto;
 
-import com.zgy.hjy_community.system.domain.entity.SysArea;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

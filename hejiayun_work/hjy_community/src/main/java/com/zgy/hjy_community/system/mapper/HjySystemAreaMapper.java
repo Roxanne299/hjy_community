@@ -1,6 +1,6 @@
 package com.zgy.hjy_community.system.mapper;
 
-import com.zgy.hjy_community.system.domain.entity.SysArea;
+import com.zgy.hjy_community.system.domain.entity.HjySystemArea;
 
 import java.util.List;
 
@@ -9,6 +9,6 @@ import java.util.List;
  * @date 2024/1/18 14:58
  * @description SysAreaMapper
  */
-public interface SysAreaMapper {
-    List<SysArea> findAll();
+public interface HjySystemAreaMapper {
+    List<HjySystemArea> findAll();
 }

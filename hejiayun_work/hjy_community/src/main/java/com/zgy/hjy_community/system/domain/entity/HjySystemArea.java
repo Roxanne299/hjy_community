@@ -1,5 +1,6 @@
 package com.zgy.hjy_community.system.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,8 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SysArea implements Serializable {
+@TableName("sys_area")
+public class HjySystemArea implements Serializable {
     private static final long serialVersionUID = -34298201339804768L;
     /**
      * 唯一主键

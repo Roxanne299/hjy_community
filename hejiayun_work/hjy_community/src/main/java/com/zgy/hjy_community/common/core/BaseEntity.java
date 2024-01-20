@@ -49,14 +49,14 @@ public class BaseEntity implements Serializable {
     /**
      * 更新者字段
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String updateBy;
 
     /**
      * 更新时间字段
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss")
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**

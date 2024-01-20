@@ -16,6 +16,8 @@ import java.util.List;
  */
 @Service
 public class HjyCommunityServiceImpl implements HjyCommunityService {
+    protected final static String COMMUNITY_PREFIX = "COMMUNITY_";
+
     @Autowired
     HjyCommunityMapper mapper;
     @Override
@@ -23,4 +25,27 @@ public class HjyCommunityServiceImpl implements HjyCommunityService {
 
         return mapper.queryList(community);
     }
+
+    @Override
+    public int AddHjyCommunity(HjyCommunity community) {
+        community.setCommunityCode(COMMUNITY_PREFIX + System.currentTimeMillis());
+        return mapper.insert(community);
+    }
+
+    @Override
+    public int deleteHjyCommunity(List<Long> communityIds) {
+        return mapper.deleteBatchIds(communityIds);
+    }
+
+    @Override
+    public HjyCommunity getCommunityById(Long communityId) {
+        return mapper.selectById(communityId);
+    }
+
+    @Override
+    public int updateCommunity(HjyCommunity community) {
+        return mapper.updateById(community);
+    }
+
+
 }

@@ -17,7 +17,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/area")
-public class SystemAreaController {
+public class HjySystemAreaController {
 
     @Autowired
     SysAreaService service;

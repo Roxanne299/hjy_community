@@ -5,14 +5,13 @@ import com.github.pagehelper.PageInfo;
 import com.zgy.hjy_community.common.constant.HttpStatus;
 import com.zgy.hjy_community.common.core.page.PageResult;
 import com.zgy.hjy_community.common.utils.ServletUtils;
-import com.zgy.hjy_community.community.domain.dto.HjyCommunityDto;
 
 import java.util.List;
 
 /**
  * @author roxanne_waar
  * @date 2024/1/17 15:51
- * @description 所有Controller的基类，提供一些公共方法
+ * @description 所有分页Controller的基类，提供一些公共方法
  */
 public class BaseController {
     /**

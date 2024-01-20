@@ -12,5 +12,11 @@ import java.util.List;
  */
 
 public interface SysAreaService {
+    /**
+     * 获取地区三级联动 树形结构
+     * @return
+     */
     List<SysAreaDto> findAreaAsTree();
+
+
 }
