@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/hjy_community/pom.xml" />
         <option value="$PROJECT_DIR$/easy_code/pom.xml" />
+        <option value="$PROJECT_DIR$/easy_poi/pom.xml" />
+        <option value="$PROJECT_DIR$/easypoi_web/pom.xml" />
       </list>
     </option>
   </component>
