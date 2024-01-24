@@ -1,5 +1,6 @@
 package com.zgy.hjy_community.web.community.controller;
 
+import com.zgy.hjy_community.common.core.BaseException;
 import com.zgy.hjy_community.common.core.BaseResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ExceptionController {
 
-    @ExceptionHandler(RuntimeException.class)
-    public BaseResponse exceptionHandler(RuntimeException e){
+    @ExceptionHandler(BaseException.class)
+    public BaseResponse exceptionHandler(BaseException e){
         return BaseResponse.error(e.getMessage());
     }
 }

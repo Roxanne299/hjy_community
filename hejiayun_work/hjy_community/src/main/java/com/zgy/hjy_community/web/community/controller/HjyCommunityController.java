@@ -5,11 +5,13 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zgy.hjy_community.common.constant.HttpStatus;
 import com.zgy.hjy_community.common.controller.BaseController;
+import com.zgy.hjy_community.common.core.BaseException;
 import com.zgy.hjy_community.common.core.BaseResponse;
 import com.zgy.hjy_community.common.core.page.PageResult;
 import com.zgy.hjy_community.common.utils.ServletUtils;
 import com.zgy.hjy_community.community.domain.dto.HjyCommunityDto;
 import com.zgy.hjy_community.community.domain.entity.HjyCommunity;
+import com.zgy.hjy_community.community.domain.vo.HjyCommunityVo;
 import com.zgy.hjy_community.community.service.HjyCommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -58,6 +60,20 @@ public class HjyCommunityController extends BaseController {
     @PutMapping
     public BaseResponse<Integer> updateCommunityById(@RequestBody  HjyCommunity community){
         int data = service.updateCommunity(community);
+        return BaseResponse.success(data);
+    }
+
+    @GetMapping("/queryPullDown")
+    public BaseResponse<List<HjyCommunityVo>> getCommunityList(HjyCommunity community){
+        List<HjyCommunityVo> data = null;
+        log.info("log() called with parameters => [hjyCommunity = {}]",community);
+        try {
+            data = service.getCommunityList(community);
+        }catch (Exception e){
+            log.warn("获取小区下拉列表失败! !",e);
+            throw new BaseException("500","获取下拉列表失败");
+        }
+
         return BaseResponse.success(data);
     }
 }

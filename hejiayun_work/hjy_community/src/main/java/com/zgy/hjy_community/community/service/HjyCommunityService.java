@@ -3,6 +3,7 @@ package com.zgy.hjy_community.community.service;
 import com.zgy.hjy_community.HjyCommunityApplication;
 import com.zgy.hjy_community.community.domain.dto.HjyCommunityDto;
 import com.zgy.hjy_community.community.domain.entity.HjyCommunity;
+import com.zgy.hjy_community.community.domain.vo.HjyCommunityVo;
 
 import java.util.List;
 
@@ -45,4 +46,11 @@ public interface HjyCommunityService {
      * @return 成功条数
      */
     int updateCommunity(HjyCommunity community);
+
+    /**
+     * 获取小区下拉列表
+     * @param community
+     * @return
+     */
+    List<HjyCommunityVo> getCommunityList(HjyCommunity community);
 }

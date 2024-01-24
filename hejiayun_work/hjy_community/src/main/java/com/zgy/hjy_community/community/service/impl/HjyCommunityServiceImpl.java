@@ -1,13 +1,16 @@
 package com.zgy.hjy_community.community.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zgy.hjy_community.community.domain.dto.HjyCommunityDto;
 import com.zgy.hjy_community.community.domain.entity.HjyCommunity;
+import com.zgy.hjy_community.community.domain.vo.HjyCommunityVo;
 import com.zgy.hjy_community.community.mapper.HjyCommunityMapper;
 import com.zgy.hjy_community.community.service.HjyCommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author roxanne_waar
@@ -45,6 +48,18 @@ public class HjyCommunityServiceImpl implements HjyCommunityService {
     @Override
     public int updateCommunity(HjyCommunity community) {
         return mapper.updateById(community);
+    }
+
+    @Override
+    public List<HjyCommunityVo> getCommunityList(HjyCommunity community) {
+        List<HjyCommunityDto> communityDtos = selectHjyCommunityList(community);
+        List<HjyCommunityVo> vos = communityDtos.stream().map(dto -> {
+            HjyCommunityVo vo = new HjyCommunityVo();
+            vo.setCommunityId(dto.getCommunityId());
+            vo.setCommunityName(dto.getCommunityName());
+            return vo;
+        }).collect(Collectors.toList());
+        return vos;
     }
 
 

@@ -19,7 +19,7 @@ public class BaseException extends RuntimeException{
 
     }
 
-    BaseException(String code,String defaultMessage){
+    public BaseException(String code,String defaultMessage){
         super(defaultMessage);
         this.code = code;
         this.defaultMessage = defaultMessage;
