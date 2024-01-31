@@ -13,6 +13,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="easy_code" />
         <module name="easy_poi" />
+        <module name="springsecurity_demo" />
         <module name="hjy_community" />
         <module name="easypoi_web" />
       </profile>
