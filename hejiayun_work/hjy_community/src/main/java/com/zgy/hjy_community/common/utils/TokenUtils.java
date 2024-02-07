@@ -1,0 +1,39 @@
+package com.zgy.hjy_community.common.utils;
+
+import com.github.pagehelper.dialect.helper.HsqldbDialect;
+import com.zgy.hjy_community.common.constant.Constants;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+
+import java.util.Date;
+import java.util.HashMap;
+
+/**
+ * @author roxanne_waar
+ * @date 2024/2/5 21:22
+ * @description Token工具类
+ */
+public class TokenUtils {
+
+    public  static final String secret = "zhanggy";
+
+    public  static final Integer expiretime = 30;
+
+
+
+    public  static String createToken(String subject){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("uuid",subject);
+
+        return Jwts.builder().addClaims(map)
+                .signWith(SignatureAlgorithm.HS512,secret).compact();
+    }
+    public  static Claims parseToken(String token){
+        return (Claims) Jwts.parser()
+                .setSigningKey(secret)
+                .parse(token)
+                .getBody();
+    }
+}

@@ -1,13 +1,11 @@
 package com.zgy.hjy_community.system.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zgy.hjy_community.common.core.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,7 +18,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("sys_dept")
-public class HjySystemDept extends BaseEntity {
+public class SysDept extends BaseEntity {
     private static final long serialVersionUID = 423701712164411477L;
     /**
      * 部门id

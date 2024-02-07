@@ -17,7 +17,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("sys_area")
-public class HjySystemArea implements Serializable {
+public class SysArea implements Serializable {
     private static final long serialVersionUID = -34298201339804768L;
     /**
      * 唯一主键

@@ -2,7 +2,7 @@ package com.zgy.hjy_community.web.system;
 
 import com.zgy.hjy_community.common.core.BaseResponse;
 import com.zgy.hjy_community.system.service.HjySysDeptService;
-import com.zgy.hjy_community.system.domain.entity.HjySystemDept;
+import com.zgy.hjy_community.system.domain.entity.SysDept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class HjySystemDeptController {
     HjySysDeptService service;
 
     @GetMapping("/list")
-    public BaseResponse<List<HjySystemDept>> getSystemDeptList(){
+    public BaseResponse<List<SysDept>> getSystemDeptList(){
         return BaseResponse.success(service.getSysDeptList());
     }
 }

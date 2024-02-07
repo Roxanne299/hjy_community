@@ -1,6 +1,6 @@
 package com.zgy.hjy_community.system.service;
 
-import com.zgy.hjy_community.system.domain.entity.HjySystemDept;
+import com.zgy.hjy_community.system.domain.entity.SysDept;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ import java.util.List;
  */
 
 public interface HjySysDeptService {
-    List<HjySystemDept> getSysDeptList();
+    List<SysDept> getSysDeptList();
 }

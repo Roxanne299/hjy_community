@@ -1,9 +1,8 @@
 package com.zgy.hjy_community.system.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.zgy.hjy_community.system.mapper.HjySystemDeptMapper;
+import com.zgy.hjy_community.system.mapper.SysDeptMapper;
 import com.zgy.hjy_community.system.service.HjySysDeptService;
-import com.zgy.hjy_community.system.domain.entity.HjySystemDept;
+import com.zgy.hjy_community.system.domain.entity.SysDept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +16,9 @@ import java.util.List;
 @Service
 public class HjySysDeptServiceImpl implements HjySysDeptService {
     @Autowired
-    HjySystemDeptMapper mapper;
+    SysDeptMapper mapper;
     @Override
-    public List<HjySystemDept> getSysDeptList() {
+    public List<SysDept> getSysDeptList() {
 
         return mapper.getDeptList();
     }
