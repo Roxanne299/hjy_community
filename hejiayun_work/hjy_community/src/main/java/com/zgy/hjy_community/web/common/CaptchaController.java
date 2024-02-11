@@ -31,7 +31,7 @@ public class CaptchaController {
      */
     @GetMapping("/captchaImage")
     public Map getCaptcha(){
-        SpecCaptcha specCaptcha = new SpecCaptcha(30,48,4);
+        SpecCaptcha specCaptcha = new SpecCaptcha(130,48,4);
 
         String simpleUUID = UUIDUtils.getSimpleUUID();
         String code = specCaptcha.text().toLowerCase();

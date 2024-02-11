@@ -20,7 +20,7 @@ public class BaseResponse<T> implements Serializable {
     /**
      * 响应状态码
      */
-    private String code;
+    private Integer code;
 
     /**
      * 响应结果描述
@@ -40,7 +40,7 @@ public class BaseResponse<T> implements Serializable {
      */
     public static <T> BaseResponse<T> success(T data){
         BaseResponse<T> response = new BaseResponse<>();
-        response.setCode(ResultCode.SUCCESS.getCode());
+        response.setCode(Integer.parseInt(ResultCode.SUCCESS.getCode()));
         response.setMessage(ResultCode.SUCCESS.getMessage());
         response.setData(data);
         return response;
@@ -53,7 +53,7 @@ public class BaseResponse<T> implements Serializable {
      */
     public static <T> BaseResponse<T> error(T data){
         BaseResponse<T> response = new BaseResponse<>();
-        response.setCode(ResultCode.ERROR.getCode());
+        response.setCode(Integer.parseInt(ResultCode.ERROR.getCode()));
         response.setMessage(ResultCode.ERROR.getMessage());
         response.setData(data);
         return response;
@@ -66,7 +66,7 @@ public class BaseResponse<T> implements Serializable {
      */
     public static <T> BaseResponse<T> error(String message){
         BaseResponse<T> response = new BaseResponse<>();
-        response.setCode(ResultCode.ERROR.getCode());
+        response.setCode(Integer.parseInt(ResultCode.ERROR.getCode()));
         response.setMessage(message);
         return response;
     }

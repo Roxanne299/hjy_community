@@ -1,12 +1,12 @@
 server:
   port: 8888
-  servlet:
-    context-path: /hejiayun
   tomcat:
     threads:
       min-spare: 30
       max: 800
     uri-encoding: UTF-8
+  servlet:
+    context-path: /hejiayun
 
 logging:
   level:

@@ -37,6 +37,10 @@ public class SecurityFilter extends OncePerRequestFilter {
             filterChain.doFilter(request,response);
             return ;
         }
+
+        if(token.startsWith("Bearer ")){
+            token = token.substring("Bearer ".length() - 1);
+        }
         String uuid = (String) TokenUtils.parseToken(token).get("uuid");
         LoginUserDto loginUserDto = redisCache.getCacheObject(Constants.LOGIN_TOKEN_KEY + uuid);
         if(Objects.isNull(loginUserDto)){

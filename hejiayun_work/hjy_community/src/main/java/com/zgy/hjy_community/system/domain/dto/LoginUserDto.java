@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author roxanne_waar
@@ -19,6 +20,21 @@ import java.util.Collection;
 @NoArgsConstructor
 public class LoginUserDto implements UserDetails {
     SysUser user;
+
+    /**
+     * 用户角色
+     */
+    List<String> roles;
+
+    /**
+     * 用户权限
+     */
+    List<String> perms;
+
+    public LoginUserDto(SysUser loginUser) {
+        this.user = loginUser;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;

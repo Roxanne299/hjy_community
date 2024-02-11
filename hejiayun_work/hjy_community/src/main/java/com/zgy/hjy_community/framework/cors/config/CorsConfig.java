@@ -6,6 +6,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import java.util.Collections;
+
 /**
  * @author roxanne_waar
  * @date 2024/2/6 15:09
@@ -20,9 +22,12 @@ public class CorsConfig {
         // 允许CORS（跨域资源共享）协议
         configuration.setAllowCredentials(true);
         // 受任意域名的请求
-        configuration.addAllowedOrigin("*");
+//        configuration.addAllowedOrigin("*");
+        configuration.setAllowedOriginPatterns(Collections.singletonList("*"));
         // 表示允许的请求方法
         configuration.addAllowedMethod("*");
+
+        configuration.addAllowedHeader("*");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**",configuration);

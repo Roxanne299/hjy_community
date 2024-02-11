@@ -35,8 +35,7 @@ public class HjySystemRouterController {
 
     @GetMapping("/getRouters")
     public BaseResponse getRouters(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        LoginUserDto user = (LoginUserDto) authentication.getPrincipal();
+        LoginUserDto user = TokenUtils.getUserDetails();
         List<SysMenuDto> menuTree = null;
         if(SysUser.isAdmin(user.getUser().getUserId())){
             menuTree = menuService.getAdminMenusAsTree();

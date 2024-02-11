@@ -14,6 +14,7 @@ import com.zgy.hjy_community.community.domain.entity.HjyCommunity;
 import com.zgy.hjy_community.community.domain.vo.HjyCommunityVo;
 import com.zgy.hjy_community.community.service.HjyCommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class HjyCommunityController extends BaseController {
     private HjyCommunityService service;
 
     @GetMapping("/list")
+    @PreAuthorize("@ex.hasPerms('system:community:list')")
     public PageResult list(HjyCommunity community){
         // 开启分页
         startPage();

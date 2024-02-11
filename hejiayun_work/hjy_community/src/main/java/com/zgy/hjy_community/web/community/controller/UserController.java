@@ -24,7 +24,7 @@ public class UserController {
         if(!fieldErrors.isEmpty()){
             BaseResponse response = new BaseResponse<>();
             response.setMessage(fieldErrors.get(0).getDefaultMessage());
-            response.setCode("500");
+            response.setCode(500);
             return response;
         }
         return BaseResponse.success(user);
