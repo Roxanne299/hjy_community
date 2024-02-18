@@ -134,6 +134,31 @@ public class SysUser extends BaseEntity implements Serializable {
      */
     private boolean admin;
 
+    public String getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    /**
+     * 搜索开始时间条件
+     */
+    private String beginTime;
+    /**
+     * 搜索结束时间条件
+     */
+    private String endTime;
+
     public static boolean isAdmin(Long userId){
         return userId != null && userId == 1L;
     }

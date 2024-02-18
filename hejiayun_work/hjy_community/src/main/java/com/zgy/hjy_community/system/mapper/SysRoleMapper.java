@@ -13,4 +13,12 @@ import java.util.List;
 public interface SysRoleMapper {
 
     List<String> getRolesByUserId(Long userId);
+    /**
+     * 查询所有角色
+     *
+     * @return 角色列表
+     */
+    public List<SysRole> selectRoleAll();
+
+    List<Integer> selectRoleListByUserId(Long userId);
 }

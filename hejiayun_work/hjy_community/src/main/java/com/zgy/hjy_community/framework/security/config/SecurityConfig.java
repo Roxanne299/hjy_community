@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.web.filter.CorsFilter;
 
 /**
@@ -36,6 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     CorsFilter corsFilter;
+
+    @Autowired
+    LogoutSuccessHandler logoutSuccessHandler;
 
     // 新建密码编码器
     @Bean
@@ -66,6 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(corsFilter,SecurityFilter.class);
         //确保在用户注销登录时，响应头中包含必要的跨域资源共享（CORS）字段
         http.addFilterBefore(corsFilter, LogoutFilter.class);
+        //设置退出方法
+        http.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
 
         //设置异常处理器
         http.exceptionHandling().authenticationEntryPoint(authenticationException);

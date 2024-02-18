@@ -9,4 +9,6 @@ import com.zgy.hjy_community.system.domain.entity.SysUser;
  */
 public interface TokenService {
     SysUser getUserInfo();
+
+    void clearUser();
 }

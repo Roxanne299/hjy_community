@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * 部门表(SysDept)实体类
@@ -76,6 +77,7 @@ public class SysDept extends BaseEntity {
      * 更新时间
      */
     private Date updateTime;
+    private List<SysDept> children;
 
 
 }

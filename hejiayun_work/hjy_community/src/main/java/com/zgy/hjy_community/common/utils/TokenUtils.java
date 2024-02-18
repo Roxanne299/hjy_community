@@ -46,4 +46,10 @@ public class TokenUtils {
         LoginUserDto user = (LoginUserDto) authentication.getPrincipal();
         return user;
     }
+    public static String getUsername(){
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        LoginUserDto user = (LoginUserDto) authentication.getPrincipal();
+        return user.getUsername();
+    }
 }

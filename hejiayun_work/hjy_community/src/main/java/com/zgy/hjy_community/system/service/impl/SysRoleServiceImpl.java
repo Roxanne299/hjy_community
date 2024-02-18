@@ -1,5 +1,6 @@
 package com.zgy.hjy_community.system.service.impl;
 
+import com.zgy.hjy_community.system.domain.entity.SysRole;
 import com.zgy.hjy_community.system.mapper.SysRoleMapper;
 import com.zgy.hjy_community.system.mapper.SysUserMapper;
 import com.zgy.hjy_community.system.service.SysRoleService;
@@ -20,5 +21,15 @@ public class SysRoleServiceImpl implements SysRoleService {
     @Override
     public List<String> getRolesByUserId(Long userId) {
         return mapper.getRolesByUserId(userId);
+    }
+
+    @Override
+    public List<SysRole> selectRoleAll() {
+        return mapper.selectRoleAll();
+    }
+
+    @Override
+    public List<Integer> selectRoleListByUserId(Long userId) {
+        return  mapper.selectRoleListByUserId(userId);
     }
 }
