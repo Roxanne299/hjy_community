@@ -2,6 +2,7 @@ package com.zgy.hjy_community.system.domain.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 菜单权限表(SysMenu)实体类
@@ -19,6 +20,19 @@ public class SysMenu implements Serializable {
      * 菜单名称
      */
     private String menuName;
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    /**
+     * 菜单父节点名称
+     */
+    private String parentName;
     /**
      * 父菜单ID
      */
@@ -83,6 +97,16 @@ public class SysMenu implements Serializable {
      * 备注
      */
     private String remark;
+
+    public List<SysMenu> getChildrens() {
+        return childrens;
+    }
+
+    public void setChildrens(List<SysMenu> childrens) {
+        this.childrens = childrens;
+    }
+
+    private List<SysMenu> childrens;
 
 
     public Long getMenuId() {

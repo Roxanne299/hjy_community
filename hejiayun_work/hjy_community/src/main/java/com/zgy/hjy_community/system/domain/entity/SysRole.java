@@ -43,12 +43,12 @@ public class SysRole extends BaseEntity implements Serializable {
     /**
      * 菜单树选择项是否关联显示
      */
-    private Integer menuCheckStrictly;
+    private boolean menuCheckStrictly;
 
     /**
      * 部门树选择项是否关联显示
      */
-    private Integer deptCheckStrictly;
+    private boolean deptCheckStrictly;
 
     /**
      * 角色状态（0正常 1停用）
@@ -80,6 +80,26 @@ public class SysRole extends BaseEntity implements Serializable {
      * 是不是管理员
      */
     private boolean admin;
+
+    public String getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    private String beginTime;
+    private String endTime;
+
 
 
     public boolean isFlag() {
@@ -176,19 +196,19 @@ public class SysRole extends BaseEntity implements Serializable {
         this.dataScope = dataScope;
     }
 
-    public Integer getMenuCheckStrictly() {
+    public boolean getMenuCheckStrictly() {
         return menuCheckStrictly;
     }
 
-    public void setMenuCheckStrictly(Integer menuCheckStrictly) {
+    public void setMenuCheckStrictly(boolean menuCheckStrictly) {
         this.menuCheckStrictly = menuCheckStrictly;
     }
 
-    public Integer getDeptCheckStrictly() {
+    public boolean getDeptCheckStrictly() {
         return deptCheckStrictly;
     }
 
-    public void setDeptCheckStrictly(Integer deptCheckStrictly) {
+    public void setDeptCheckStrictly(boolean deptCheckStrictly) {
         this.deptCheckStrictly = deptCheckStrictly;
     }
 

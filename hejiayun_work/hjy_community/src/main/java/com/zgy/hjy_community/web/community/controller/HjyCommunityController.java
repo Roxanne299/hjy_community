@@ -73,7 +73,7 @@ public class HjyCommunityController extends BaseController {
             data = service.getCommunityList(community);
         }catch (Exception e){
             log.warn("获取小区下拉列表失败! !",e);
-            throw new BaseException("500","获取下拉列表失败");
+            throw new BaseException(500,"获取下拉列表失败");
         }
 
         return BaseResponse.success(data);

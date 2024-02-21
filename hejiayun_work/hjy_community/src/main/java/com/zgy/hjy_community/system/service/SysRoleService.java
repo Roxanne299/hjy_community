@@ -1,5 +1,6 @@
 package com.zgy.hjy_community.system.service;
 
+import com.microsoft.schemas.office.office.STInsetMode;
 import com.zgy.hjy_community.system.domain.entity.SysRole;
 
 import java.util.List;
@@ -20,5 +21,16 @@ public interface SysRoleService {
     public List<SysRole> selectRoleAll();
 
     List<Integer> selectRoleListByUserId(Long userId);
+    List<SysRole> selectRoleList(SysRole sysRole);
+
+    SysRole getRoleInfo(Long roleId);
+
+    void insertRole(SysRole sysRole);
+    String checkRoleNameUnique(SysRole sysRole);
+
+    String checkRoleKeyUnique(SysRole sysRole);
+    void updateRole(SysRole role);
+    int deleteRoleByIds(Long[] roleIds);
+    void updateRoleStatus(SysRole sysRole);
 
 }

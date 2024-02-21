@@ -4,6 +4,7 @@ import com.zgy.hjy_community.common.constant.Constants;
 import com.zgy.hjy_community.common.utils.RedisCache;
 import com.zgy.hjy_community.common.utils.TokenUtils;
 import com.zgy.hjy_community.system.domain.dto.LoginUserDto;
+import com.zgy.hjy_community.system.service.TokenService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.lang.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class SecurityFilter extends OncePerRequestFilter {
     public static final String HEADERS = "Authorization";
     @Autowired
     RedisCache redisCache;
+
+    @Autowired
+    TokenService tokenService;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader(HEADERS);
@@ -49,7 +53,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         }
 
         // 登录成功 刷新时间
-        redisCache.setCacheObject(Constants.LOGIN_TOKEN_KEY + uuid,loginUserDto,20, TimeUnit.MINUTES);
+        tokenService.refreshToken(loginUserDto);
 
         //将认证信息加入上下文
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginUserDto,null,null);

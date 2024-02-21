@@ -15,6 +15,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author roxanne_waar
  * @date 2024/2/7 17:10
@@ -39,11 +41,25 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public void clearUser() {
         String token = ServletUtils.getRequest().getHeader("Authorization");
+        if(token.startsWith("Bearer ")){
+            token = token.substring("Bearer ".length() - 1);
+        }
         if(!StringUtils.hasText(token)){
             Claims claims = TokenUtils.parseToken(token);
             String uuid = (String) claims.get("uuid");
             redisCache.deleteObject(Constants.LOGIN_TOKEN_KEY + uuid);
         }
+    }
+
+    @Override
+    public  void refreshToken(LoginUserDto userDto){
+
+        String token = ServletUtils.getRequest().getHeader("Authorization");
+        if(token.startsWith("Bearer ")){
+            token = token.substring("Bearer ".length() - 1);
+        }
+        String uuid = TokenUtils.parseToken(token).getSubject();
+        redisCache.setCacheObject(Constants.LOGIN_TOKEN_KEY + uuid,userDto,20, TimeUnit.MINUTES);
     }
 
 

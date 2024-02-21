@@ -45,7 +45,7 @@ public class ExcelUtils {
             sheets.write(outputStream);
         }
         catch (Exception e){
-            throw new BaseException("500","导出excel表格失败");
+            throw new BaseException(500,"导出excel表格失败");
         }finally {
             outputStream.close();
             sheets.close();

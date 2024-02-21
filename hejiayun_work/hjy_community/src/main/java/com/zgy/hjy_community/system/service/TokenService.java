@@ -1,5 +1,6 @@
 package com.zgy.hjy_community.system.service;
 
+import com.zgy.hjy_community.system.domain.dto.LoginUserDto;
 import com.zgy.hjy_community.system.domain.entity.SysUser;
 
 /**
@@ -11,4 +12,5 @@ public interface TokenService {
     SysUser getUserInfo();
 
     void clearUser();
+    void  refreshToken(LoginUserDto userDto);
 }

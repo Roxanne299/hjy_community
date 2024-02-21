@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SysMenuDto implements Serializable {
     private static final long serialVersionUID = 1333598680882769447L;
+    private Long menuId;
     /**
      * 菜单名称
      */

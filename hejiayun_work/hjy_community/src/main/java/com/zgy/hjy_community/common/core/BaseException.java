@@ -9,7 +9,7 @@ public class BaseException extends RuntimeException{
     /**
      * 错误码
      */
-    private String code;
+    private Integer code;
     /**
      * 错误信息
      */
@@ -19,13 +19,13 @@ public class BaseException extends RuntimeException{
 
     }
 
-    public BaseException(String code,String defaultMessage){
+    public BaseException(Integer code,String defaultMessage){
         super(defaultMessage);
         this.code = code;
         this.defaultMessage = defaultMessage;
     }
 
-    public String getCode() {
+    public Integer getCode() {
         return code;
     }
 

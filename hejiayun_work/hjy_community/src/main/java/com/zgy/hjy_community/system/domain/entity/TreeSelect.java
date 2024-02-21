@@ -1,6 +1,7 @@
 package com.zgy.hjy_community.system.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.zgy.hjy_community.system.domain.dto.SysMenuDto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +33,13 @@ public class TreeSelect implements Serializable {
         this.label = sysDept.getDeptName();
         //流式处理: 通过 map 方法将子部门列表中的每个子部门转换为 TreeSelect 对象,并将其赋值给当前TreeSelect对象的 children 属性
         this.children = sysDept.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
+    }
+    //构造方法接收菜单对象,构建树形结构TreeSelect对象
+    public TreeSelect(SysMenu menu){
+        this.id = menu.getMenuId();
+        this.label = menu.getMenuName();
+        //流式处理: 通过 map 方法将子部门列表中的每个子部门转换为 TreeSelect 对象,并将其赋值给当前TreeSelect对象的 children 属性
+        this.children = menu.getChildrens().stream().map(TreeSelect::new).collect(Collectors.toList());
     }
 
     public Long getId() {

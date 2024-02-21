@@ -123,7 +123,7 @@ public class SysUserServiceImpl implements SysUserService {
     public void checkUserAllowed(SysUser user) {
         if (!Objects.isNull(user.getUserId()) && SysUser.isAdmin(user.getUserId()))
         {
-            throw new BaseException("500","不允许操作超级管理员用户");
+            throw new BaseException(500,"不允许操作超级管理员用户");
         }
     }
 

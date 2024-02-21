@@ -38,14 +38,14 @@ public class UserLoginServiceImpl implements UserLoginService {
         // 验证码校验
         String code = redisCache.getCacheObject(Constants.CAPTCHA_CODE_KEY + uuid);
         if(!Strings.hasText(code) || !Strings.hasText(user.getCode())||!code.equals(user.getCode())){
-            throw new BaseException("500","验证码错误");
+            throw new BaseException(500,"验证码错误");
         }
 
         //用户名密码验证
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if(Objects.isNull(authenticate)){
-            throw new BaseException("500","用户名或者密码错误");
+            throw new BaseException(500,"用户名或者密码错误");
         }
 
         //将验证后的用户信息加入到redis
